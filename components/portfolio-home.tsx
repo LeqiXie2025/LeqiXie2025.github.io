@@ -5,181 +5,130 @@ import { ArrowUpRight, GitBranch, Languages, Mail, MapPin } from 'lucide-react'
 
 type Locale = 'zh' | 'en'
 
-const profile = {
-  email: 'Leqi.Xie25@student.xjtlu.edu.cn',
-  github: 'https://github.com/LeqiXie2025',
-}
-
 const copy = {
   zh: {
-    nav: ['关于', '方向', '项目', '经历'],
-    switchLabel: 'EN',
-    role: '人工智能本科生 · Intelligent Systems',
-    name: '谢乐琦',
-    englishName: 'Leqi Xie',
-    location: '苏州 · 西交利物浦大学',
-    status: 'Open to research, projects, and collaboration',
+    nav: ['关于', '研究', '项目', '荣誉'],
+    status: '开放交流与合作',
+    role: '人工智能本科生 · 智能系统方向',
     intro:
-      '我关注人工智能系统的实际构建与可靠评估，当前兴趣方向包括多模态人工智能、视觉语言理解、AI Agent、RAG 系统以及机器学习应用开发。',
-    aboutTitle: '关于我',
-    about:
-      '我目前是西交利物浦大学 2025 级人工智能专业本科生，方向为 Intelligent Systems。我的经历结合了 AI 应用开发、数据竞赛、科研助理和创新创业项目。我希望通过可复现的项目、实验记录和开源实践，逐步建立扎实的 AI 技术作品集。',
-    educationTitle: '教育背景',
-    school: "Xi'an Jiaotong-Liverpool University",
-    degree: 'BEng Artificial Intelligence · Intelligent Systems Pathway',
-    graduation: 'Expected Graduation: 2029',
-    gpa: 'GPA: 3.975 / 4.0',
-    award: 'Academic Excellence Award',
-    interestsTitle: '研究与技术兴趣',
+      '我关注人工智能系统的实际构建与可靠评估，正在通过科研、开源实践与数据竞赛，构建可复现、可验证的 AI 技术作品集。',
+    location: '苏州 · 西交利物浦大学',
+    about: '关于我',
+    aboutText:
+      '我是西交利物浦大学 2025 级人工智能专业本科生，方向为 Intelligent Systems。我的兴趣跨越多模态理解、AI Agent、RAG 系统与机器学习应用开发。我希望把想法变成真正可运行、可测试、可改进的系统。',
+    education: '教育背景',
+    degree: '人工智能工学学士 · Intelligent Systems Pathway',
+    graduation: '预计 2029 年毕业',
+    gpa: 'GPA 3.975 / 4.0 · Academic Excellence Award',
+    research: '研究兴趣',
     interests: [
-      ['多模态人工智能', '关注图像、文本、语音等多源信息的联合理解、检索与推理。'],
-      ['AI Agent 与 RAG 系统', '关注大语言模型在工具调用、知识检索、任务规划和应用系统中的工程化落地。'],
-      ['计算机视觉与图像分析', '关注图像分类、图像分割、科学图像分析和模型错误分析。'],
-      ['可靠 AI 系统', '关注模型评估、失败案例分析、可复现实验和面向真实场景的 AI 应用。'],
+      ['多模态人工智能', '图像、文本与语音等多源信息的联合理解、检索与推理。'],
+      ['AI Agent 与 RAG', '关注工具调用、知识检索、任务规划与智能应用的工程化落地。'],
+      ['计算机视觉', '图像分类、分割、科学图像分析，以及模型错误分析。'],
     ],
-    projectsTitle: '当前项目',
-    projects: [
+    projects: '进行中的项目',
+    projectList: [
       [
         'Predicting Smartphone Addiction',
         'Kaggle Playground Series',
-        '正在参加 Kaggle Playground Series 中的表格预测比赛，重点训练数据清洗、特征工程、模型比较、交叉验证和提交复盘能力。',
+        '正在参加以表格数据预测为核心的 Kaggle Playground Series，系统训练数据清洗、特征工程、模型比较、交叉验证与提交复盘能力。',
       ],
       [
         '慧眸科技 / Rimberio',
-        'AI 智慧课堂项目 · 入围 500 强',
-        '入围“千个海归创客圆梦计划”500 强。项目面向高校课堂中“到课不等于参与”的问题，设计基于课堂答题参与的智能签到与课堂互动系统，结合 AI 出题、动态二维码、限时答题和课后学情报告，帮助教师更好地了解学生的课堂参与情况。',
+        'AI 智慧课堂 · 海归创客 500 强',
+        '项目入围“千个海归创客圆梦计划”500 强。项目面向高校课堂中“到课不等于参与”的问题，设计基于课堂答题参与的智能签到与互动系统，结合 AI 出题、动态二维码、限时答题和课后学情报告，帮助教师更准确地理解学生参与情况。',
       ],
       [
         'AI-enabled Learning Platform',
-        'Undergraduate Research Assistantship',
-        '作为本科科研助理参与学校 AI 教学平台相关项目，关注 AI 技术在教学支持、学习过程辅助和平台功能设计中的应用。',
-      ],
-      [
-        'AI Agent for Healthcare Scenario',
-        'AI Agent Development Project',
-        '参与 AI + Healthcare 场景下的 AI Agent 应用项目，涉及 LLM 工作流设计、Prompt Engineering、RAG 思路和应用层 Agent 架构。',
+        'Research Assistantship',
+        '作为科研助理参与校内 AI 教学平台项目，探索 AI 在教学支持、学习过程辅助与平台功能设计中的实际应用。',
       ],
     ],
-    honorsTitle: '竞赛与荣誉',
-    honors: [
-      ['National Second Prize', 'Global Campus AI Algorithm Elite Competition · AI Agent Development Application track.'],
-      ['Outstanding Practice Award', 'OPC x Agent Super Individual Challenge · multi-platform AI agent application project.'],
-      ['Team Leader and Finalist', 'XJTLU Global Entrepreneurial Dream-Chasers Competition · Top 60 among 1,170 global submissions.'],
-      ['Professional Certification', 'Baidu Large Language Model Application Development Engineer Certification.'],
+    honors: '竞赛与荣誉',
+    honorList: [
+      ['全国二等奖', '全球校园人工智能算法精英大赛 · AI Agent Development Application 赛道。项目聚焦 AI + Healthcare。'],
+      ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge。通过多 Agent 协作，构建覆盖产品宣传全流程的多平台闭环营销助手。'],
+      ['全球前 60 强 · 队长', '带领团队从全球 29 个国家和地区、119 所大学的 1170 份申请中晋级决赛。'],
+      ['专业认证', '获得百度大语言模型应用开发工程师认证。'],
     ],
-    technicalTitle: '技术成长路径',
-    technicalGroups: [
-      ['AI Systems', 'LangChain, RAG, AI Agents, workflow orchestration, Dify, Coze, and MCP-based application workflows.'],
-      ['Competition-based Practice', 'AI agent development, digital human systems, data prediction, and intelligent application prototyping.'],
-      ['Hardware & Embedded AI', 'Basic experience with Arduino, Core S3, and small-scale robotics prototyping.'],
-    ],
-    skillsTitle: '技能',
-    skills: [
-      ['Programming', 'Python, C/C++, SQL, JavaScript'],
-      ['Machine Learning', 'scikit-learn, PyTorch, data preprocessing, model evaluation, cross-validation'],
-      ['AI Systems', 'LLM applications, RAG, AI Agent, Prompt Engineering'],
-      ['Tools', 'Git, GitHub, Linux basics, Kaggle, Markdown'],
-    ],
-    copy: '复制',
-    copied: '已复制',
-    footer: 'Built with GitHub Pages · Leqi Xie',
+    path: '技术成长路径',
+    pathText: 'AI 系统：LangChain · RAG · AI Agent · Workflow · MCP',
+    hardwarePath: '硬件与嵌入式 AI：Arduino · Core S3 · 小型机器人搭建',
+    footer: '以好奇心出发，以可验证的作品抵达。',
   },
   en: {
-    nav: ['About', 'Focus', 'Projects', 'Experience'],
-    switchLabel: '中文',
+    nav: ['About', 'Research', 'Projects', 'Honors'],
+    status: 'Open to conversations',
     role: 'AI Undergraduate · Intelligent Systems',
-    name: 'Leqi Xie',
-    englishName: '谢乐琦',
-    location: "Suzhou · Xi'an Jiaotong-Liverpool University",
-    status: 'Open to research, projects, and collaboration',
     intro:
-      'I am interested in building and evaluating practical AI systems, with current interests in multimodal AI, vision-language understanding, AI agents, RAG systems, and applied machine learning.',
-    aboutTitle: 'About',
-    about:
-      "I am a 2025-entry BEng Artificial Intelligence student on the Intelligent Systems pathway at Xi'an Jiaotong-Liverpool University. My experience combines AI application development, data competitions, undergraduate research assistance, and entrepreneurship-oriented teamwork. I am building a reproducible AI portfolio through projects, experiment records, and open-source practice.",
-    educationTitle: 'Education',
-    school: "Xi'an Jiaotong-Liverpool University",
+      'I build and evaluate practical AI systems, developing a reproducible and verifiable portfolio through research, open-source practice, and data competitions.',
+    location: "Suzhou · Xi'an Jiaotong-Liverpool University",
+    about: 'About me',
+    aboutText:
+      "I am a 2025-entry Artificial Intelligence undergraduate at Xi'an Jiaotong-Liverpool University. My interests span multimodal understanding, AI agents, RAG systems, and applied machine learning. I enjoy turning ideas into systems that can be run, tested, and improved.",
+    education: 'Education',
     degree: 'BEng Artificial Intelligence · Intelligent Systems Pathway',
-    graduation: 'Expected Graduation: 2029',
-    gpa: 'GPA: 3.975 / 4.0',
-    award: 'Academic Excellence Award',
-    interestsTitle: 'Research & Technical Interests',
+    graduation: 'Expected graduation · 2029',
+    gpa: 'GPA 3.975 / 4.0 · Academic Excellence Award',
+    research: 'Research interests',
     interests: [
       ['Multimodal AI', 'Joint understanding, retrieval, and reasoning across image, text, and speech.'],
-      ['AI Agents & RAG', 'Tool use, knowledge retrieval, task planning, and applied LLM system development.'],
-      ['Computer Vision', 'Image classification, image segmentation, scientific image analysis, and model error analysis.'],
-      ['Reliable AI Systems', 'Model evaluation, failure analysis, reproducible experiments, and real-world AI applications.'],
+      ['AI Agents & RAG', 'Tool use, knowledge retrieval, task planning, and production AI applications.'],
+      ['Computer Vision', 'Image classification, segmentation, scientific imaging, and model error analysis.'],
     ],
-    projectsTitle: 'Current Projects',
-    projects: [
+    projects: 'Selected work',
+    projectList: [
       [
         'Predicting Smartphone Addiction',
         'Kaggle Playground Series',
-        'Participating in a tabular prediction challenge, focusing on data cleaning, feature engineering, model comparison, cross-validation, and submission review.',
+        'Competing in a tabular prediction challenge while developing a rigorous workflow for data cleaning, feature engineering, model comparison, cross-validation, and submission review.',
       ],
       [
         'Rimberio',
-        'AI Smart Classroom Project · Top 500',
-        'Selected as a Top 500 project in the “Thousand Overseas Returnee Makers Dream Plan”. The project addresses the gap between attendance and real participation in university classrooms through an intelligent check-in and classroom interaction system based on quiz participation, AI-generated questions, dynamic QR codes, timed responses, and post-class learning reports.',
+        'AI Smart Classroom · Top 500',
+        'Selected as a Top 500 project in the “Thousand Overseas Returnee Makers Dream Plan”. The project addresses the gap between attendance and genuine participation with an intelligent check-in and interaction system based on quiz participation, AI-generated questions, dynamic QR codes, timed responses, and post-class learning reports.',
       ],
       [
         'AI-enabled Learning Platform',
-        'Undergraduate Research Assistantship',
-        'Contributing to a university AI-enabled teaching platform project, focusing on AI applications in teaching support, learning-process assistance, and platform feature design.',
-      ],
-      [
-        'AI Agent for Healthcare Scenario',
-        'AI Agent Development Project',
-        'Worked on an AI + Healthcare agent application project involving LLM workflow design, prompt engineering, RAG concepts, and application-level agent architecture.',
+        'Research Assistantship',
+        'Contributing as a research assistant and examining AI-supported teaching, learning-process assistance, and platform feature design from a technical architect’s perspective.',
       ],
     ],
-    honorsTitle: 'Competitions & Honors',
-    honors: [
-      ['National Second Prize', 'Global Campus AI Algorithm Elite Competition · AI Agent Development Application track.'],
-      ['Outstanding Practice Award', 'OPC x Agent Super Individual Challenge · multi-platform AI agent application project.'],
-      ['Team Leader and Finalist', 'XJTLU Global Entrepreneurial Dream-Chasers Competition · Top 60 among 1,170 global submissions.'],
-      ['Professional Certification', 'Baidu Large Language Model Application Development Engineer Certification.'],
+    honors: 'Competitions & honors',
+    honorList: [
+      ['National Second Prize', 'Global Campus AI Algorithm Elite Competition, AI Agent Development Application track. The project explored AI + Healthcare.'],
+      ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge. Built a multi-platform closed-loop marketing assistant powered by coordinated multi-agent workflows.'],
+      ['Global Top 60 · Team Lead', 'Led a team into the finals from 1,170 applications across 119 universities in 29 countries and regions.'],
+      ['Professional Certification', 'Certified as a Baidu Large Language Model Application Development Engineer.'],
     ],
-    technicalTitle: 'Technical Development',
-    technicalGroups: [
-      ['AI Systems', 'LangChain, RAG, AI Agents, workflow orchestration, Dify, Coze, and MCP-based application workflows.'],
-      ['Competition-based Practice', 'AI agent development, digital human systems, data prediction, and intelligent application prototyping.'],
-      ['Hardware & Embedded AI', 'Basic experience with Arduino, Core S3, and small-scale robotics prototyping.'],
-    ],
-    skillsTitle: 'Skills',
-    skills: [
-      ['Programming', 'Python, C/C++, SQL, JavaScript'],
-      ['Machine Learning', 'scikit-learn, PyTorch, data preprocessing, model evaluation, cross-validation'],
-      ['AI Systems', 'LLM applications, RAG, AI Agent, Prompt Engineering'],
-      ['Tools', 'Git, GitHub, Linux basics, Kaggle, Markdown'],
-    ],
-    copy: 'Copy',
-    copied: 'Copied',
-    footer: 'Built with GitHub Pages · Leqi Xie',
+    path: 'Technical growth',
+    pathText: 'AI systems: LangChain · RAG · AI Agent · Workflow · MCP',
+    hardwarePath: 'Hardware & embedded AI: Arduino · Core S3 · small robot prototyping',
+    footer: 'Led by curiosity, grounded in verifiable work.',
   },
 }
 
 export function PortfolioHome() {
-  const [locale, setLocale] = useState<Locale>('en')
+  const [locale, setLocale] = useState<Locale>('zh')
   const [copied, setCopied] = useState<'email' | 'github' | null>(null)
   const t = copy[locale]
 
   async function copyContact(type: 'email' | 'github', value: string) {
     await navigator.clipboard.writeText(value)
     setCopied(type)
-    window.setTimeout(() => setCopied(null), 1500)
+    window.setTimeout(() => setCopied(null), 1800)
   }
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-20 border-b border-border bg-background/90 backdrop-blur-md">
+      <header className="sticky top-0 border-b border-border bg-background/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
           <a className="text-sm font-semibold tracking-tight" href="#top">
-            Leqi Xie
+            谢乐琦
           </a>
           <div className="flex items-center gap-5">
             <nav aria-label="Primary navigation" className="hidden items-center gap-6 md:flex">
-              {['about', 'focus', 'projects', 'experience'].map((id, index) => (
+              {['about', 'research', 'projects', 'honors'].map((id, index) => (
                 <a key={id} href={`#${id}`} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                   {t.nav[index]}
                 </a>
@@ -189,9 +138,10 @@ export function PortfolioHome() {
               type="button"
               onClick={() => setLocale(locale === 'zh' ? 'en' : 'zh')}
               className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-2 font-mono text-xs font-semibold transition-colors hover:bg-secondary"
+              aria-label={locale === 'zh' ? 'Switch to English' : '切换到中文'}
             >
               <Languages aria-hidden="true" className="size-4" />
-              {t.switchLabel}
+              {locale === 'zh' ? 'EN' : '中文'}
             </button>
           </div>
         </div>
@@ -201,84 +151,82 @@ export function PortfolioHome() {
         <aside className="lg:sticky lg:top-24 lg:h-fit lg:self-start">
           <div className="mb-7">
             <p className="font-mono text-xs uppercase tracking-[0.18em] text-primary">{t.role}</p>
-            <h1 className="mt-4 text-balance font-serif text-5xl leading-none tracking-[-0.04em]">
-              {t.name}
+            <h1 className="mt-4 text-balance font-serif text-5xl leading-none tracking-[-0.06em]">
+              谢乐琦
               <span className="text-primary">.</span>
             </h1>
-            <p className="mt-3 font-serif text-xl text-muted-foreground">{t.englishName}</p>
+            <p className="mt-3 font-serif text-xl text-muted-foreground">Leqi Xie</p>
             <p className="mt-5 text-pretty text-sm leading-relaxed text-muted-foreground">{t.intro}</p>
             <p className="mt-4 flex items-center gap-2 font-mono text-xs text-muted-foreground">
               <MapPin className="size-4" />
               {t.location}
             </p>
           </div>
-
-          <div className="overflow-hidden rounded-[1.5rem] bg-secondary">
+          <div className="overflow-hidden rounded-[2rem] bg-secondary">
             <img
               src="/images/leqi-portrait.jpg"
               alt={locale === 'zh' ? '谢乐琦个人照片' : 'Portrait of Leqi Xie'}
               className="aspect-[4/5] w-full object-cover object-[center_38%]"
             />
           </div>
-
           <div className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
             <span className="size-2 rounded-full bg-primary" />
             {t.status}
           </div>
-
           <div className="mt-4 flex flex-col gap-2" aria-live="polite">
             <button
               type="button"
-              onClick={() => copyContact('email', profile.email)}
+              onClick={() => copyContact('email', 'Leqi.Xie25@student.xjtlu.edu.cn')}
               className="flex items-center justify-between rounded-full border border-border px-4 py-3 text-left text-xs transition-colors hover:bg-secondary"
+              aria-label={locale === 'zh' ? '复制邮箱地址' : 'Copy email address'}
             >
               <span className="flex min-w-0 items-center gap-2">
                 <Mail className="size-4 shrink-0" />
-                <span className="truncate">{profile.email}</span>
+                <span className="truncate">Leqi.Xie25@student.xjtlu.edu.cn</span>
               </span>
-              <span className="ml-3 font-mono text-primary">{copied === 'email' ? t.copied : t.copy}</span>
+              <span className="ml-3 font-mono text-primary">{copied === 'email' ? (locale === 'zh' ? '已复制' : 'Copied') : (locale === 'zh' ? '复制' : 'Copy')}</span>
             </button>
             <button
               type="button"
-              onClick={() => copyContact('github', profile.github)}
+              onClick={() => copyContact('github', 'https://github.com/LeqiXie2025')}
               className="flex items-center justify-between rounded-full border border-border px-4 py-3 text-left text-xs transition-colors hover:bg-secondary"
+              aria-label={locale === 'zh' ? '复制 GitHub 地址' : 'Copy GitHub URL'}
             >
               <span className="flex min-w-0 items-center gap-2">
                 <GitBranch className="size-4 shrink-0" />
                 <span className="truncate">github.com/LeqiXie2025</span>
               </span>
-              <span className="ml-3 font-mono text-primary">{copied === 'github' ? t.copied : t.copy}</span>
+              <span className="ml-3 font-mono text-primary">{copied === 'github' ? (locale === 'zh' ? '已复制' : 'Copied') : (locale === 'zh' ? '复制' : 'Copy')}</span>
             </button>
           </div>
         </aside>
 
         <div>
-          <Section id="about" eyebrow="01" title={t.aboutTitle}>
-            <p className="max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">{t.about}</p>
+          <Section id="about" eyebrow="01" title={t.about}>
+            <p className="max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">{t.aboutText}</p>
             <div className="mt-10 border-l-2 border-primary pl-5">
-              <p className="font-semibold">{t.school}</p>
+              <p className="font-semibold">Xi’an Jiaotong-Liverpool University</p>
               <p className="mt-1 text-sm text-muted-foreground">{t.degree}</p>
               <p className="mt-1 font-mono text-xs text-primary">
                 {t.graduation} · {t.gpa}
               </p>
-              <p className="mt-1 font-mono text-xs text-primary">{t.award}</p>
             </div>
           </Section>
 
-          <Section id="focus" eyebrow="02" title={t.interestsTitle}>
-            <div className="grid gap-4 md:grid-cols-2">
+          <Section id="research" eyebrow="02" title={t.research}>
+            <div className="flex flex-col gap-8">
               {t.interests.map(([title, description]) => (
-                <article key={title} className="rounded-2xl border border-border bg-card p-5">
+                <article key={title} className="grid gap-2 border-t border-border pt-5 sm:grid-cols-[180px_1fr] sm:gap-8">
                   <h3 className="font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
                 </article>
               ))}
             </div>
           </Section>
 
-          <Section id="projects" eyebrow="03" title={t.projectsTitle}>
+          <Section id="projects" eyebrow="03" title={t.projects}>
             <div className="flex flex-col gap-4">
-              {t.projects.map(([title, label, description]) => (
+              {t.projectList.map(([title, label, description]) => (
                 <article key={title} className="group rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -293,9 +241,9 @@ export function PortfolioHome() {
             </div>
           </Section>
 
-          <Section id="experience" eyebrow="04" title={t.honorsTitle}>
+          <Section id="honors" eyebrow="04" title={t.honors}>
             <ol className="flex flex-col gap-0">
-              {t.honors.map(([title, detail], index) => (
+              {t.honorList.map(([title, detail], index) => (
                 <li key={title} className="grid grid-cols-[2rem_1fr] gap-3 border-t border-border py-5">
                   <span className="font-mono text-xs text-primary">0{index + 1}</span>
                   <div>
@@ -308,27 +256,10 @@ export function PortfolioHome() {
           </Section>
 
           <section className="rounded-3xl bg-primary px-7 py-10 text-primary-foreground md:px-10">
-            <p className="font-mono text-xs uppercase tracking-[0.18em] opacity-75">{t.technicalTitle}</p>
-            <div className="mt-6 grid gap-5 md:grid-cols-3">
-              {t.technicalGroups.map(([title, detail]) => (
-                <div key={title}>
-                  <h3 className="font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed opacity-85">{detail}</p>
-                </div>
-              ))}
-            </div>
+            <p className="font-mono text-xs uppercase tracking-[0.18em] opacity-70">{t.path}</p>
+            <p className="mt-5 text-balance font-serif text-2xl leading-relaxed md:text-3xl">{t.pathText}</p>
+            <p className="mt-5 border-t border-primary-foreground/20 pt-5 font-mono text-sm leading-relaxed opacity-80">{t.hardwarePath}</p>
           </section>
-
-          <Section id="skills" eyebrow="05" title={t.skillsTitle}>
-            <div className="grid gap-4 md:grid-cols-2">
-              {t.skills.map(([title, detail]) => (
-                <article key={title} className="border-t border-border pt-4">
-                  <h3 className="font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{detail}</p>
-                </article>
-              ))}
-            </div>
-          </Section>
         </div>
       </div>
 
