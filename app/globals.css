@@ -1,41 +1,32 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
-@import 'shadcn/tailwind.css';
 
 @theme inline {
-  --font-sans: var(--font-geist-sans), var(--font-noto-sans-sc), sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+  --font-sans: Inter, "Noto Sans SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, ui-monospace, monospace;
+  --font-serif: Georgia, "Noto Serif SC", "Songti SC", serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --color-card-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-muted: var(--muted);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--secondary);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
+  --color-ring: var(--primary);
 }
 
 :root {
-  color-scheme: light;
-  --background: oklch(0.985 0.004 255);
-  --foreground: oklch(0.19 0.035 257);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.19 0.035 257);
-  --primary: oklch(0.55 0.2 258);
-  --primary-foreground: oklch(1 0 0);
-  --muted: oklch(0.95 0.01 255);
-  --muted-foreground: oklch(0.48 0.035 257);
-  --border: oklch(0.9 0.015 255);
-  --ring: oklch(0.55 0.2 258);
-  --radius: 0.75rem;
+  --background: #f7f8f4;
+  --foreground: #18221d;
+  --card: #ffffff;
+  --primary: #347363;
+  --primary-foreground: #ffffff;
+  --secondary: #e7ebe5;
+  --muted-foreground: #65706a;
+  --border: #d8ded9;
 }
 
 @layer base {
@@ -51,31 +42,13 @@
     @apply bg-background text-foreground;
   }
 
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
   button,
   a {
-    @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
-  }
-}
-
-.hero-grid {
-  background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--border) 50%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--border) 50%, transparent) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, black, transparent 92%);
-  opacity: 0.65;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring;
   }
 }

@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -29,18 +29,15 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build static site
         run: pnpm build
-        env:
-          GITHUB_PAGES: 'true'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: out
+
   deploy:
     environment:
       name: github-pages
