@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowUpRight, GitBranch, Languages, Mail, MapPin } from 'lucide-react'
+import { ArrowUpRight, GitBranch, Languages, Mail, MapPin, Maximize2, X } from 'lucide-react'
 
 type Locale = 'zh' | 'en'
 
@@ -38,7 +38,7 @@ const copy = {
         '慧眸科技 / Rimberio',
         'AI 智慧课堂 · 海归创客 500 强',
         '项目入围“千个海归创客圆梦计划”500 强。项目面向高校课堂中“到课不等于参与”的问题，设计基于课堂答题参与的智能签到与互动系统，结合 AI 出题、动态二维码、限时答题和课后学情报告，帮助教师更准确地理解学生参与情况。',
-        '',
+        '/media/rimberio-smart-classroom-demo.mp4',
       ],
       [
         'AI-enabled Learning Platform',
@@ -49,8 +49,8 @@ const copy = {
     ],
     honors: '竞赛与荣誉',
     honorList: [
-      ['全国二等奖', '全球校园人工智能算法精英大赛 · AI Agent Development Application 赛道。项目聚焦 AI + Healthcare。', ''],
-      ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge。通过多 Agent 协作，构建覆盖产品宣传全流程的多平台闭环营销助手。', ''],
+      ['全球校园人工智能算法精英大赛 · AI Agent Development Application 赛道 · 全国二等奖', '项目聚焦 AI + Healthcare。', ''],
+      ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge。通过多 Agent 协作，构建覆盖产品宣传全流程的多平台闭环营销助手。', '/media/opc-agent-workflow-demo.mp4'],
       ['中国软件杯 A5 数字人赛道', '参与数字人方向项目实践，围绕多模态交互与应用演示进行原型展示。', '/media/software-cup-a5-demo.mp4'],
       ['西浦全球创业梦想家大赛 · 全球前 60 强 · 队长', '带领团队从全球 29 个国家和地区、119 所大学的 1170 份申请中晋级决赛。', '/media/dream-chasers-demo.mp4'],
       ['专业认证', '获得百度大语言模型应用开发工程师认证。', ''],
@@ -92,7 +92,7 @@ const copy = {
         'Rimberio',
         'AI Smart Classroom · Top 500',
         'Selected as a Top 500 project in the “Thousand Overseas Returnee Makers Dream Plan”. The project addresses the gap between attendance and genuine participation with an intelligent check-in and interaction system based on quiz participation, AI-generated questions, dynamic QR codes, timed responses, and post-class learning reports.',
-        '',
+        '/media/rimberio-smart-classroom-demo.mp4',
       ],
       [
         'AI-enabled Learning Platform',
@@ -103,8 +103,8 @@ const copy = {
     ],
     honors: 'Competitions & honors',
     honorList: [
-      ['National Second Prize', 'Global Campus AI Algorithm Elite Competition, AI Agent Development Application track. The project explored AI + Healthcare.', ''],
-      ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge. Built a multi-platform closed-loop marketing assistant powered by coordinated multi-agent workflows.', ''],
+      ['Global Campus AI Algorithm Elite Competition · AI Agent Development Application Track · National Second Prize', 'The project explored AI + Healthcare.', ''],
+      ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge. Built a multi-platform closed-loop marketing assistant powered by coordinated multi-agent workflows.', '/media/opc-agent-workflow-demo.mp4'],
       ['China Software Cup A5 Digital Human Track', 'Worked on a digital-human project demo involving multimodal interaction and applied AI prototyping.', '/media/software-cup-a5-demo.mp4'],
       ['XJTLU Global Entrepreneurial Dream-Chasers Competition · Global Top 60 · Team Lead', 'Led a team into the finals from 1,170 applications across 119 universities in 29 countries and regions.', '/media/dream-chasers-demo.mp4'],
       ['Professional Certification', 'Certified as a Baidu Large Language Model Application Development Engineer.', ''],
@@ -119,6 +119,7 @@ const copy = {
 export function PortfolioHome() {
   const [locale, setLocale] = useState<Locale>('zh')
   const [copied, setCopied] = useState<'email' | 'github' | null>(null)
+  const [video, setVideo] = useState<{ src: string; title: string } | null>(null)
   const t = copy[locale]
 
   async function copyContact(type: 'email' | 'github', value: string) {
@@ -243,15 +244,14 @@ export function PortfolioHome() {
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{description}</p>
                   {href ? (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noreferrer"
+                    <button
+                      type="button"
+                      onClick={() => setVideo({ src: href, title })}
                       className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-semibold text-primary transition-colors hover:text-foreground"
                     >
                       {locale === 'zh' ? '查看演示视频' : 'View demo video'}
                       <ArrowUpRight className="size-3" />
-                    </a>
+                    </button>
                   ) : null}
                 </article>
               ))}
@@ -267,15 +267,14 @@ export function PortfolioHome() {
                     <h3 className="font-semibold">{title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{detail}</p>
                     {href ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noreferrer"
+                      <button
+                        type="button"
+                        onClick={() => setVideo({ src: href, title })}
                         className="mt-3 inline-flex items-center gap-1 font-mono text-xs font-semibold text-primary transition-colors hover:text-foreground"
                       >
                         {locale === 'zh' ? '查看演示视频' : 'View demo video'}
                         <ArrowUpRight className="size-3" />
-                      </a>
+                      </button>
                     ) : null}
                   </div>
                 </li>
@@ -297,7 +296,67 @@ export function PortfolioHome() {
           <p>{t.footer}</p>
         </div>
       </footer>
+
+      {video ? (
+        <VideoModal
+          src={video.src}
+          title={video.title}
+          closeLabel={locale === 'zh' ? '关闭' : 'Close'}
+          expandLabel={locale === 'zh' ? '放大播放' : 'Enlarge'}
+          onClose={() => setVideo(null)}
+        />
+      ) : null}
     </main>
+  )
+}
+
+function VideoModal({
+  src,
+  title,
+  closeLabel,
+  expandLabel,
+  onClose,
+}: {
+  src: string
+  title: string
+  closeLabel: string
+  expandLabel: string
+  onClose: () => void
+}) {
+  async function enlarge() {
+    const player = document.getElementById('portfolio-video-player')
+    if (player?.requestFullscreen) {
+      await player.requestFullscreen()
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/60 px-4 py-6 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={title}>
+      <div className="w-full max-w-5xl overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
+        <div className="flex items-center justify-between gap-4 border-b border-border px-5 py-4">
+          <h2 className="text-sm font-semibold md:text-base">{title}</h2>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={enlarge}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            >
+              <Maximize2 className="size-4" />
+              {expandLabel}
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            >
+              <X className="size-4" />
+              {closeLabel}
+            </button>
+          </div>
+        </div>
+        <video id="portfolio-video-player" src={src} controls autoPlay className="aspect-video w-full bg-black" />
+      </div>
+    </div>
   )
 }
 
