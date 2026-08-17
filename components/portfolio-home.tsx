@@ -19,7 +19,7 @@ const copy = {
     education: '教育背景',
     degree: '人工智能工学学士 · Intelligent Systems Pathway',
     graduation: '预计 2029 年毕业',
-    gpa: 'GPA 3.975 / 4.0 · Academic Excellence Award',
+    gpa: 'GPA 3.975 / 4.0 · 2026/27 Academic Excellence Award',
     research: '研究兴趣',
     interests: [
       ['多模态人工智能', '图像、文本与语音等多源信息的联合理解、检索与推理。'],
@@ -73,7 +73,7 @@ const copy = {
     education: 'Education',
     degree: 'BEng Artificial Intelligence · Intelligent Systems Pathway',
     graduation: 'Expected graduation · 2029',
-    gpa: 'GPA 3.975 / 4.0 · Academic Excellence Award',
+    gpa: 'GPA 3.975 / 4.0 · 2026/27 Academic Excellence Award',
     research: 'Research interests',
     interests: [
       ['Multimodal AI', 'Joint understanding, retrieval, and reasoning across image, text, and speech.'],
@@ -131,9 +131,7 @@ export function PortfolioHome() {
     <main className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 border-b border-border bg-background/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
-          <a className="text-sm font-semibold tracking-tight" href="#top">
-            谢乐琦
-          </a>
+          <span aria-hidden="true" />
           <div className="flex items-center gap-5">
             <nav aria-label="Primary navigation" className="hidden items-center gap-6 md:flex">
               {['about', 'research', 'projects', 'honors'].map((id, index) => (
