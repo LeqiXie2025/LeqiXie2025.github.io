@@ -38,7 +38,6 @@ const copy = {
         '慧眸科技 / Rimberio',
         'AI 智慧课堂 · 海归创客 500 强',
         '项目入围“千个海归创客圆梦计划”500 强。项目面向高校课堂中“到课不等于参与”的问题，设计基于课堂答题参与的智能签到与互动系统，结合 AI 出题、动态二维码、限时答题和课后学情报告，帮助教师更准确地理解学生参与情况。',
-        '/media/rimberio-smart-classroom-demo.mp4',
         '/media/rimberio-smart-classroom-demo-2.mp4',
       ],
       [
@@ -50,7 +49,7 @@ const copy = {
     ],
     honors: '竞赛与荣誉',
     honorList: [
-      ['全球校园人工智能算法精英大赛 · AI Agent Development Application 赛道 · 全国二等奖', '项目聚焦 AI + Healthcare。', ''],
+      ['全球校园人工智能算法精英大赛 · AI Agent Development Application 赛道 · 全国二等奖', '项目聚焦 AI + Healthcare，基于大语言模型与 Agent 工作流，探索医疗健康场景中的问答、信息整理与辅助服务原型。', ''],
       ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge。通过多 Agent 协作，构建覆盖产品宣传全流程的多平台闭环营销助手。', '/media/opc-agent-workflow-demo.mp4'],
       ['中国软件杯 A5 数字人赛道', '参与数字人方向项目实践，围绕多模态交互与应用演示进行原型展示。', '/media/software-cup-a5-demo.mp4'],
       ['西浦全球创业梦想家大赛 · 全球前 60 强 · 队长', '带领团队从全球 29 个国家和地区、119 所大学的 1170 份申请中晋级决赛。', '/media/dream-chasers-demo.mp4'],
@@ -93,7 +92,6 @@ const copy = {
         'Rimberio',
         'AI Smart Classroom · Top 500',
         'Selected as a Top 500 project in the “Thousand Overseas Returnee Makers Dream Plan”. The project addresses the gap between attendance and genuine participation with an intelligent check-in and interaction system based on quiz participation, AI-generated questions, dynamic QR codes, timed responses, and post-class learning reports.',
-        '/media/rimberio-smart-classroom-demo.mp4',
         '/media/rimberio-smart-classroom-demo-2.mp4',
       ],
       [
@@ -105,7 +103,7 @@ const copy = {
     ],
     honors: 'Competitions & honors',
     honorList: [
-      ['Global Campus AI Algorithm Elite Competition · AI Agent Development Application Track · National Second Prize', 'The project explored AI + Healthcare.', ''],
+      ['Global Campus AI Algorithm Elite Competition · AI Agent Development Application Track · National Second Prize', 'The project explored AI + Healthcare through large language models and agent workflows, focusing on question answering, information organization, and assistive service prototyping for healthcare scenarios.', ''],
       ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge. Built a multi-platform closed-loop marketing assistant powered by coordinated multi-agent workflows.', '/media/opc-agent-workflow-demo.mp4'],
       ['China Software Cup A5 Digital Human Track', 'Worked on a digital-human project demo involving multimodal interaction and applied AI prototyping.', '/media/software-cup-a5-demo.mp4'],
       ['XJTLU Global Entrepreneurial Dream-Chasers Competition · Global Top 60 · Team Lead', 'Led a team into the finals from 1,170 applications across 119 universities in 29 countries and regions.', '/media/dream-chasers-demo.mp4'],
