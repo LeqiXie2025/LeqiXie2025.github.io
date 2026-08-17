@@ -39,12 +39,13 @@ const copy = {
         'AI 智慧课堂 · 海归创客 500 强',
         '项目入围“千个海归创客圆梦计划”500 强。项目面向高校课堂中“到课不等于参与”的问题，设计基于课堂答题参与的智能签到与互动系统，结合 AI 出题、动态二维码、限时答题和课后学情报告，帮助教师更准确地理解学生参与情况。',
         '/media/rimberio-smart-classroom-demo.mp4',
+        '/media/rimberio-smart-classroom-demo-2.mp4',
       ],
       [
         'AI-enabled Learning Platform',
         'Research Assistantship',
         '作为科研助理参与校内 AI 教学平台项目，探索 AI 在教学支持、学习过程辅助与平台功能设计中的实际应用。',
-        '/media/ra-learning-platform-demo.mp4',
+        '/media/ra-learning-platform-demo-h264.mp4',
       ],
     ],
     honors: '竞赛与荣誉',
@@ -53,7 +54,7 @@ const copy = {
       ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge。通过多 Agent 协作，构建覆盖产品宣传全流程的多平台闭环营销助手。', '/media/opc-agent-workflow-demo.mp4'],
       ['中国软件杯 A5 数字人赛道', '参与数字人方向项目实践，围绕多模态交互与应用演示进行原型展示。', '/media/software-cup-a5-demo.mp4'],
       ['西浦全球创业梦想家大赛 · 全球前 60 强 · 队长', '带领团队从全球 29 个国家和地区、119 所大学的 1170 份申请中晋级决赛。', '/media/dream-chasers-demo.mp4'],
-      ['专业认证', '获得百度大语言模型应用开发工程师认证。', ''],
+      ['专业认证', '获得百度大语言模型应用开发工程师认证。', '/images/baidu-llm-certificate.jpg'],
     ],
     path: '技术成长路径',
     pathText: 'AI 系统：LangChain · RAG · AI Agent · Workflow · MCP',
@@ -93,12 +94,13 @@ const copy = {
         'AI Smart Classroom · Top 500',
         'Selected as a Top 500 project in the “Thousand Overseas Returnee Makers Dream Plan”. The project addresses the gap between attendance and genuine participation with an intelligent check-in and interaction system based on quiz participation, AI-generated questions, dynamic QR codes, timed responses, and post-class learning reports.',
         '/media/rimberio-smart-classroom-demo.mp4',
+        '/media/rimberio-smart-classroom-demo-2.mp4',
       ],
       [
         'AI-enabled Learning Platform',
         'Research Assistantship',
         'Contributing as a research assistant and examining AI-supported teaching, learning-process assistance, and platform feature design from a technical architect’s perspective.',
-        '/media/ra-learning-platform-demo.mp4',
+        '/media/ra-learning-platform-demo-h264.mp4',
       ],
     ],
     honors: 'Competitions & honors',
@@ -107,7 +109,7 @@ const copy = {
       ['Outstanding Practice Award', 'OPC × Agent Super Individual Challenge. Built a multi-platform closed-loop marketing assistant powered by coordinated multi-agent workflows.', '/media/opc-agent-workflow-demo.mp4'],
       ['China Software Cup A5 Digital Human Track', 'Worked on a digital-human project demo involving multimodal interaction and applied AI prototyping.', '/media/software-cup-a5-demo.mp4'],
       ['XJTLU Global Entrepreneurial Dream-Chasers Competition · Global Top 60 · Team Lead', 'Led a team into the finals from 1,170 applications across 119 universities in 29 countries and regions.', '/media/dream-chasers-demo.mp4'],
-      ['Professional Certification', 'Certified as a Baidu Large Language Model Application Development Engineer.', ''],
+      ['Professional Certification', 'Certified as a Baidu Large Language Model Application Development Engineer.', '/images/baidu-llm-certificate.jpg'],
     ],
     path: 'Technical growth',
     pathText: 'AI systems: LangChain · RAG · AI Agent · Workflow · MCP',
@@ -119,7 +121,7 @@ const copy = {
 export function PortfolioHome() {
   const [locale, setLocale] = useState<Locale>('zh')
   const [copied, setCopied] = useState<'email' | 'github' | null>(null)
-  const [video, setVideo] = useState<{ src: string; title: string } | null>(null)
+  const [media, setMedia] = useState<{ src: string; title: string; type: 'video' | 'image' } | null>(null)
   const t = copy[locale]
 
   async function copyContact(type: 'email' | 'github', value: string) {
@@ -233,7 +235,7 @@ export function PortfolioHome() {
 
           <Section id="projects" eyebrow="03" title={t.projects}>
             <div className="flex flex-col gap-4">
-              {t.projectList.map(([title, label, description, href]) => (
+              {t.projectList.map(([title, label, description, href, secondHref]) => (
                 <article key={title} className="group rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1">
                   <div className="flex items-start justify-between gap-4">
                     <div>
@@ -244,14 +246,18 @@ export function PortfolioHome() {
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{description}</p>
                   {href ? (
-                    <button
-                      type="button"
-                      onClick={() => setVideo({ src: href, title })}
-                      className="mt-4 inline-flex items-center gap-1 font-mono text-xs font-semibold text-primary transition-colors hover:text-foreground"
-                    >
-                      {locale === 'zh' ? '查看演示视频' : 'View demo video'}
-                      <ArrowUpRight className="size-3" />
-                    </button>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <MediaButton
+                        label={secondHref ? (locale === 'zh' ? '查看演示视频 1' : 'View demo video 1') : locale === 'zh' ? '查看演示视频' : 'View demo video'}
+                        onClick={() => setMedia({ src: href, title, type: 'video' })}
+                      />
+                      {secondHref ? (
+                        <MediaButton
+                          label={locale === 'zh' ? '查看演示视频 2' : 'View demo video 2'}
+                          onClick={() => setMedia({ src: secondHref, title: `${title} · 2`, type: 'video' })}
+                        />
+                      ) : null}
+                    </div>
                   ) : null}
                 </article>
               ))}
@@ -267,14 +273,10 @@ export function PortfolioHome() {
                     <h3 className="font-semibold">{title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{detail}</p>
                     {href ? (
-                      <button
-                        type="button"
-                        onClick={() => setVideo({ src: href, title })}
-                        className="mt-3 inline-flex items-center gap-1 font-mono text-xs font-semibold text-primary transition-colors hover:text-foreground"
-                      >
-                        {locale === 'zh' ? '查看演示视频' : 'View demo video'}
-                        <ArrowUpRight className="size-3" />
-                      </button>
+                      <MediaButton
+                        label={href.endsWith('.jpg') ? (locale === 'zh' ? '查看证书' : 'View certificate') : locale === 'zh' ? '查看演示视频' : 'View demo video'}
+                        onClick={() => setMedia({ src: href, title, type: href.endsWith('.jpg') ? 'image' : 'video' })}
+                      />
                     ) : null}
                   </div>
                 </li>
@@ -297,34 +299,50 @@ export function PortfolioHome() {
         </div>
       </footer>
 
-      {video ? (
-        <VideoModal
-          src={video.src}
-          title={video.title}
+      {media ? (
+        <MediaModal
+          src={media.src}
+          title={media.title}
+          type={media.type}
           closeLabel={locale === 'zh' ? '关闭' : 'Close'}
-          expandLabel={locale === 'zh' ? '放大播放' : 'Enlarge'}
-          onClose={() => setVideo(null)}
+          expandLabel={media.type === 'image' ? (locale === 'zh' ? '放大查看' : 'Enlarge') : locale === 'zh' ? '放大播放' : 'Enlarge'}
+          onClose={() => setMedia(null)}
         />
       ) : null}
     </main>
   )
 }
 
-function VideoModal({
+function MediaButton({ label, onClick }: { label: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="inline-flex items-center gap-1 font-mono text-xs font-semibold text-primary transition-colors hover:text-foreground"
+    >
+      {label}
+      <ArrowUpRight className="size-3" />
+    </button>
+  )
+}
+
+function MediaModal({
   src,
   title,
+  type,
   closeLabel,
   expandLabel,
   onClose,
 }: {
   src: string
   title: string
+  type: 'video' | 'image'
   closeLabel: string
   expandLabel: string
   onClose: () => void
 }) {
   async function enlarge() {
-    const player = document.getElementById('portfolio-video-player')
+    const player = document.getElementById('portfolio-media-player')
     if (player?.requestFullscreen) {
       await player.requestFullscreen()
     }
@@ -354,7 +372,11 @@ function VideoModal({
             </button>
           </div>
         </div>
-        <video id="portfolio-video-player" src={src} controls autoPlay className="aspect-video w-full bg-black" />
+        {type === 'video' ? (
+          <video id="portfolio-media-player" src={src} controls autoPlay className="aspect-video w-full bg-black" />
+        ) : (
+          <img id="portfolio-media-player" src={src} alt={title} className="max-h-[78vh] w-full bg-black object-contain" />
+        )}
       </div>
     </div>
   )
