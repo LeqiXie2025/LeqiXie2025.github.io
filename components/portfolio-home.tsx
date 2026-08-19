@@ -129,9 +129,10 @@ export function PortfolioHome() {
   }
 
   return (
-    <main className="min-h-screen bg-transparent text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
       <header className="glass-header sticky top-0 z-20 border-b border-border backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-end px-5 md:px-8">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
+          <span aria-hidden="true" />
           <div className="flex items-center gap-5">
             <nav aria-label="Primary navigation" className="hidden items-center gap-6 md:flex">
               {['about', 'research', 'projects', 'honors'].map((id, index) => (
@@ -156,13 +157,13 @@ export function PortfolioHome() {
       <div id="top" className="mx-auto grid max-w-6xl gap-10 px-5 py-10 md:px-8 md:py-16 lg:grid-cols-[320px_1fr] lg:gap-20">
         <aside className="lg:sticky lg:top-24 lg:h-fit lg:self-start">
           <div className="mb-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">{t.role}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-primary">{t.role}</p>
             <h1 className="mt-4 text-balance font-serif text-6xl leading-none tracking-[-0.065em]">
               谢乐琦
               <span className="text-primary">.</span>
             </h1>
             <p className="mt-3 font-serif text-2xl italic text-muted-foreground">Leqi Xie</p>
-            <p className="mt-5 max-w-[34rem] text-pretty text-sm leading-relaxed text-muted-foreground">{t.intro}</p>
+            <p className="mt-5 text-pretty text-sm leading-relaxed text-muted-foreground">{t.intro}</p>
             <p className="mt-4 flex items-center gap-2 font-mono text-xs text-muted-foreground">
               <MapPin className="size-4" />
               {t.location}
@@ -183,7 +184,7 @@ export function PortfolioHome() {
             <button
               type="button"
               onClick={() => copyContact('email', 'Leqi.Xie25@student.xjtlu.edu.cn')}
-              className="flex min-h-11 items-center justify-between rounded-full border border-border bg-card/45 px-4 py-3 text-left text-xs transition-colors hover:bg-secondary"
+              className="flex items-center justify-between rounded-full border border-border px-4 py-3 text-left text-xs transition-colors hover:bg-secondary"
               aria-label={locale === 'zh' ? '复制邮箱地址' : 'Copy email address'}
             >
               <span className="flex min-w-0 items-center gap-2">
@@ -195,7 +196,7 @@ export function PortfolioHome() {
             <button
               type="button"
               onClick={() => copyContact('github', 'https://github.com/LeqiXie2025')}
-              className="flex min-h-11 items-center justify-between rounded-full border border-border bg-card/45 px-4 py-3 text-left text-xs transition-colors hover:bg-secondary"
+              className="flex items-center justify-between rounded-full border border-border px-4 py-3 text-left text-xs transition-colors hover:bg-secondary"
               aria-label={locale === 'zh' ? '复制 GitHub 地址' : 'Copy GitHub URL'}
             >
               <span className="flex min-w-0 items-center gap-2">
@@ -236,10 +237,10 @@ export function PortfolioHome() {
                 <article key={title} className="portfolio-card group rounded-3xl border border-border p-6 transition-transform hover:-translate-y-1">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{label}</p>
+                      <p className="font-mono text-xs uppercase tracking-wider text-primary">{label}</p>
                       <h3 className="mt-2 text-lg font-semibold">{title}</h3>
                     </div>
-                    <ArrowUpRight className="size-5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+                    <ArrowUpRight className="size-5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{description}</p>
                   {href ? (
@@ -265,7 +266,7 @@ export function PortfolioHome() {
             <ol className="flex flex-col gap-0">
               {t.honorList.map(([title, detail, href], index) => (
                 <li key={title} className="grid grid-cols-[2rem_1fr] gap-3 border-t border-border py-5">
-                  <span className="quiet-rule mt-2 h-px w-5" aria-hidden="true" />
+                  <span className="font-mono text-xs text-primary">0{index + 1}</span>
                   <div>
                     <h3 className="font-semibold">{title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{detail}</p>
@@ -282,9 +283,9 @@ export function PortfolioHome() {
           </Section>
 
           <section className="feature-panel rounded-3xl px-7 py-10 text-primary-foreground md:px-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-75">{t.path}</p>
+            <p className="font-mono text-xs uppercase tracking-[0.18em] opacity-70">{t.path}</p>
             <p className="mt-5 text-balance font-serif text-2xl leading-relaxed md:text-3xl">{t.pathText}</p>
-            <p className="mt-5 border-t border-primary-foreground/20 pt-5 text-sm leading-relaxed opacity-85">{t.hardwarePath}</p>
+            <p className="mt-5 border-t border-primary-foreground/20 pt-5 font-mono text-sm leading-relaxed opacity-80">{t.hardwarePath}</p>
           </section>
         </div>
       </div>
@@ -315,7 +316,7 @@ function MediaButton({ label, onClick }: { label: string; onClick: () => void })
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex min-h-9 items-center gap-1 rounded-full px-1 text-xs font-semibold text-primary transition-colors hover:text-foreground"
+      className="inline-flex items-center gap-1 font-mono text-xs font-semibold text-primary transition-colors hover:text-foreground"
     >
       {label}
       <ArrowUpRight className="size-3" />
@@ -346,15 +347,15 @@ function MediaModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/60 px-3 py-4 backdrop-blur-sm sm:px-4 sm:py-6" role="dialog" aria-modal="true" aria-label={title}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/60 px-4 py-6 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={title}>
       <div className="portfolio-card w-full max-w-5xl overflow-hidden rounded-3xl border border-border shadow-2xl">
-        <div className="flex flex-col gap-3 border-b border-border px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
-          <h2 className="text-sm font-semibold leading-snug md:text-base">{title}</h2>
+        <div className="flex items-center justify-between gap-4 border-b border-border px-5 py-4">
+          <h2 className="text-sm font-semibold md:text-base">{title}</h2>
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={enlarge}
-              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border px-3 py-2 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               <Maximize2 className="size-4" />
               {expandLabel}
@@ -362,7 +363,7 @@ function MediaModal({
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border px-3 py-2 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-2 font-mono text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
             >
               <X className="size-4" />
               {closeLabel}
@@ -382,8 +383,8 @@ function MediaModal({
 function Section({ id, eyebrow, title, children }: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="scroll-mt-24 py-16 md:py-20">
-      <div className="mb-9">
-        <span className="quiet-rule mb-5 block h-px w-12" aria-hidden="true" />
+      <div className="mb-9 flex items-baseline gap-4">
+        <span className="font-mono text-xs text-primary">{eyebrow}</span>
         <h2 className="font-serif text-4xl tracking-[-0.035em] md:text-5xl">{title}</h2>
       </div>
       {children}

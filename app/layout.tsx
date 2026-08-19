@@ -6,15 +6,11 @@ export const metadata: Metadata = {
   description:
     'Personal portfolio of Leqi Xie, a BEng Artificial Intelligence student at Xi’an Jiaotong-Liverpool University.',
   generator: 'Next.js',
-  icons: {
-    icon: '/icon.svg',
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#f4f1ea',
+  themeColor: '#f7f8f4',
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
