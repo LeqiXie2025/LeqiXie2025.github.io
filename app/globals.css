@@ -21,12 +21,12 @@
 :root {
   --background: #f7f8f4;
   --foreground: #18221d;
-  --card: rgba(255, 253, 248, 0.78);
-  --primary: #275f52;
+  --card: #ffffff;
+  --primary: #347363;
   --primary-foreground: #ffffff;
-  --secondary: #e9e3d8;
-  --muted-foreground: #68736d;
-  --border: rgba(39, 95, 82, 0.18);
+  --secondary: #e7ebe5;
+  --muted-foreground: #65706a;
+  --border: #d8ded9;
 }
 
 @layer base {
