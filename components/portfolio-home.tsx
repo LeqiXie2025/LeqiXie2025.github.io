@@ -130,7 +130,7 @@ export function PortfolioHome() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 border-b border-border bg-background/90 backdrop-blur-md">
+      <header className="glass-header sticky top-0 z-20 border-b border-border backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8">
           <span aria-hidden="true" />
           <div className="flex items-center gap-5">
@@ -157,19 +157,19 @@ export function PortfolioHome() {
       <div id="top" className="mx-auto grid max-w-6xl gap-10 px-5 py-10 md:px-8 md:py-16 lg:grid-cols-[320px_1fr] lg:gap-20">
         <aside className="lg:sticky lg:top-24 lg:h-fit lg:self-start">
           <div className="mb-7">
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-primary">{t.role}</p>
-            <h1 className="mt-4 text-balance font-serif text-5xl leading-none tracking-[-0.06em]">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-primary">{t.role}</p>
+            <h1 className="mt-4 text-balance font-serif text-6xl leading-none tracking-[-0.065em]">
               谢乐琦
               <span className="text-primary">.</span>
             </h1>
-            <p className="mt-3 font-serif text-xl text-muted-foreground">Leqi Xie</p>
+            <p className="mt-3 font-serif text-2xl italic text-muted-foreground">Leqi Xie</p>
             <p className="mt-5 text-pretty text-sm leading-relaxed text-muted-foreground">{t.intro}</p>
             <p className="mt-4 flex items-center gap-2 font-mono text-xs text-muted-foreground">
               <MapPin className="size-4" />
               {t.location}
             </p>
           </div>
-          <div className="overflow-hidden rounded-[2rem] bg-secondary">
+          <div className="portrait-frame overflow-hidden rounded-[2rem] bg-secondary">
             <img
               src="/images/leqi-portrait.jpg"
               alt={locale === 'zh' ? '谢乐琦个人照片' : 'Portrait of Leqi Xie'}
@@ -211,7 +211,7 @@ export function PortfolioHome() {
         <div>
           <Section id="about" eyebrow="01" title={t.about}>
             <p className="max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">{t.aboutText}</p>
-            <div className="mt-10 border-l-2 border-primary pl-5">
+            <div className="portfolio-card mt-10 rounded-2xl border border-border px-5 py-5">
               <p className="font-semibold">Xi’an Jiaotong-Liverpool University</p>
               <p className="mt-1 text-sm text-muted-foreground">{t.degree}</p>
               <p className="mt-1 font-mono text-xs text-primary">
@@ -234,7 +234,7 @@ export function PortfolioHome() {
           <Section id="projects" eyebrow="03" title={t.projects}>
             <div className="flex flex-col gap-4">
               {t.projectList.map(([title, label, description, href, secondHref]) => (
-                <article key={title} className="group rounded-2xl border border-border bg-card p-6 transition-transform hover:-translate-y-1">
+                <article key={title} className="portfolio-card group rounded-3xl border border-border p-6 transition-transform hover:-translate-y-1">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="font-mono text-xs uppercase tracking-wider text-primary">{label}</p>
@@ -282,7 +282,7 @@ export function PortfolioHome() {
             </ol>
           </Section>
 
-          <section className="rounded-3xl bg-primary px-7 py-10 text-primary-foreground md:px-10">
+          <section className="feature-panel rounded-3xl px-7 py-10 text-primary-foreground md:px-10">
             <p className="font-mono text-xs uppercase tracking-[0.18em] opacity-70">{t.path}</p>
             <p className="mt-5 text-balance font-serif text-2xl leading-relaxed md:text-3xl">{t.pathText}</p>
             <p className="mt-5 border-t border-primary-foreground/20 pt-5 font-mono text-sm leading-relaxed opacity-80">{t.hardwarePath}</p>
@@ -348,7 +348,7 @@ function MediaModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/60 px-4 py-6 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={title}>
-      <div className="w-full max-w-5xl overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
+      <div className="portfolio-card w-full max-w-5xl overflow-hidden rounded-3xl border border-border shadow-2xl">
         <div className="flex items-center justify-between gap-4 border-b border-border px-5 py-4">
           <h2 className="text-sm font-semibold md:text-base">{title}</h2>
           <div className="flex items-center gap-2">
@@ -385,7 +385,7 @@ function Section({ id, eyebrow, title, children }: { id: string; eyebrow: string
     <section id={id} className="scroll-mt-24 py-16 md:py-20">
       <div className="mb-9 flex items-baseline gap-4">
         <span className="font-mono text-xs text-primary">{eyebrow}</span>
-        <h2 className="font-serif text-3xl tracking-tight md:text-4xl">{title}</h2>
+        <h2 className="font-serif text-4xl tracking-[-0.035em] md:text-5xl">{title}</h2>
       </div>
       {children}
     </section>
