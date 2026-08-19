@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN" className="bg-background">
+    <html lang="en" className="bg-background">
       <body className="font-sans antialiased">{children}</body>
     </html>
   )

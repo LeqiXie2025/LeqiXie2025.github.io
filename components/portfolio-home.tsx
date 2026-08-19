@@ -117,7 +117,7 @@ const copy = {
 }
 
 export function PortfolioHome() {
-  const [locale, setLocale] = useState<Locale>('zh')
+  const [locale, setLocale] = useState<Locale>('en')
   const [copied, setCopied] = useState<'email' | 'github' | null>(null)
   const [media, setMedia] = useState<{ src: string; title: string; type: 'video' | 'image' } | null>(null)
   const t = copy[locale]
